@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OATH
+namespace Oath
 {
     public class TotpGenerator : HotpGenerator
     {
@@ -8,6 +8,8 @@ namespace OATH
         /// The default validity period for an OTP token.
         /// </summary>
         private static readonly TimeSpan DefaultValidityPeriod = TimeSpan.FromSeconds(60);
+
+        private TimeSpan _validityPeriod = DefaultValidityPeriod;
 
         /// <summary>
         /// Initializes a new instance of the TimeBasedOtpGenerator class. This is used when the client and server do not share a counter value but the clocks between the two are synchronized within reasonable margins of each other.
@@ -17,6 +19,18 @@ namespace OATH
         public TotpGenerator(Key secretKey, int otpLength)
             : base(secretKey, otpLength)
         {
+        }
+
+        /// <summary>
+        /// /// Initializes a new instance of the TimeBasedOtpGenerator class. This is used when the client and server do not share a counter value but the clocks between the two are synchronized within reasonable margins of each other.
+        /// </summary>
+        /// <param name="secretKey">The secret key.</param>
+        /// <param name="otpLength">The number of digits in the OTP to generate.</param>
+        /// <param name="validityPeriod">The TimeSpan of the validity period for the OTP.</param>
+        public TotpGenerator(Key secretKey, int otpLength, TimeSpan validityPeriod)
+                    : base(secretKey, otpLength)
+        {
+            _validityPeriod = validityPeriod;
         }
 
         /// <summary>
@@ -42,7 +56,7 @@ namespace OATH
         /// <returns>True if the provided OTP is valid, otherwise false.</returns>
         public bool ValidateOtp(string providedOtp, DateTime currentTime)
         {
-            return this.ValidateOtp(providedOtp, currentTime, DefaultValidityPeriod);
+            return ValidateOtp(providedOtp, currentTime, _validityPeriod);
         }
 
         /// <summary>
@@ -63,7 +77,7 @@ namespace OATH
 
             for (var step = minSteps; step <= maxSteps; step++)
             {
-                if (GenerateOtp(step).Equals(providedOtp, StringComparison.InvariantCultureIgnoreCase))
+                if (ValidateOtp(providedOtp,step))
                 {
                     return true;
                 }

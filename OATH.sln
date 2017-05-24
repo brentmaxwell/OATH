@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OATH", "OATH\OATH.csproj", "{7678D1BD-0E9B-4A98-A049-8934DF6C670C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oath", "OATH\Oath.csproj", "{7678D1BD-0E9B-4A98-A049-8934DF6C670C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OathTests", "OathTests\OathTests.csproj", "{A56CAA7D-FA65-4B79-BA59-5A7D48E82921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7678D1BD-0E9B-4A98-A049-8934DF6C670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7678D1BD-0E9B-4A98-A049-8934DF6C670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7678D1BD-0E9B-4A98-A049-8934DF6C670C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56CAA7D-FA65-4B79-BA59-5A7D48E82921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56CAA7D-FA65-4B79-BA59-5A7D48E82921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56CAA7D-FA65-4B79-BA59-5A7D48E82921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56CAA7D-FA65-4B79-BA59-5A7D48E82921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

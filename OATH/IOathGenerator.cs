@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OATH
+namespace Oath
 {
     /// <summary>
     /// Interface for the OATH Generator Classes
@@ -9,5 +9,6 @@ namespace OATH
     public interface IOathGenerator : IDisposable
     {
         string GenerateOtp(int counter);
+        bool ValidateOtp(string providedOtp, int counter);
     }
 }

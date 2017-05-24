@@ -1,16 +1,16 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OATH")]
-[assembly: AssemblyDescription("OATH-HOTP and -TOTP generator class")]
+[assembly: AssemblyTitle("OathTests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OATH")]
-[assembly: AssemblyCopyright("Copyright © 2015 Brent Maxwell")]
+[assembly: AssemblyProduct("OathTests")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,10 +19,8 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: CLSCompliant(true)]
-
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e0a958d5-c0d0-40c3-92ed-68e399161437")]
+[assembly: Guid("a56caa7d-fa65-4b79-ba59-5a7d48e82921")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

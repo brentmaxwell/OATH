@@ -7,8 +7,8 @@
     <ProjectGuid>{7678D1BD-0E9B-4A98-A049-8934DF6C670C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OATH</RootNamespace>
-    <AssemblyName>OATH</AssemblyName>
+    <RootNamespace>Oath</RootNamespace>
+    <AssemblyName>Oath</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HotpGenerator.cs" />
     <Compile Include="Key.cs" />
     <Compile Include="IOathGenerator.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="TotpGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OATH.cd" />
+    <None Include="Oath.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

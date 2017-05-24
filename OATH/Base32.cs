@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
-namespace OATH
+namespace Oath
 {
     public static class Base32
     {
@@ -29,13 +30,13 @@ namespace OATH
         /// <returns>A base-32 encoded string.</returns>
         public static string ToBase32(this byte[] data)
         {
-            string result = String.Empty;
+            var result = String.Empty;
 
             var fullSegments = data.Length / 5;
             var finalSegmentLength = data.Length % 5;
             var segments = fullSegments + (finalSegmentLength == 0 ? 0 : 1);
 
-            for (int i = 0; i < segments; i++)
+            for (var i = 0; i < segments; i++)
             {
                 var segment = data.Skip(i * 5).Take(5).ToArray();
                 result = String.Concat(result, ConvertSegmentToBase32(segment));
@@ -52,7 +53,7 @@ namespace OATH
         /// <exception cref="ArgumentException">The argument is not a valid base32-encoded string.</exception>
         public static byte[] ToBinary(this string base32)
         {
-            base32 = base32.ToUpper();
+            base32 = base32.ToUpper(CultureInfo.InvariantCulture);
 
             if (base32.Any(c => !Alphabet.Contains(c) && c != Padding))
             {

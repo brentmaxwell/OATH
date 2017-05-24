@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OATH
+namespace Oath
 {
     public class Key
     {
@@ -21,9 +21,9 @@ namespace OATH
         /// <param name="seed">A seed to use for the random key generation.</param>
         public Key(int keyLength, int seed)
         {
-            this._keyData = new byte[keyLength];
+            _keyData = new byte[keyLength];
             var gen = new Random(seed);
-            gen.NextBytes(this._keyData);
+            gen.NextBytes(_keyData);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace OATH
         /// <param name="data">The key to initialize.</param>
         public Key(byte[] data)
         {
-            this._keyData = data;
+            _keyData = data;
         }
 
         /// <summary>
@@ -48,23 +48,17 @@ namespace OATH
         /// <summary>
         ///     Gets the key represented as a byte array.
         /// </summary>
-        public virtual byte[] Binary
+        public virtual byte[] ToBinary()
         {
-            get
-            {
-                return _keyData;
-            }
+            return _keyData;
         }
 
         /// <summary>
         ///     Gets the key represented as base32-encoded string.
         /// </summary>
-        public virtual string Base32
+        public virtual string ToBase32()
         {
-            get
-            {
-                return _keyData.ToBase32();
-            }
+            return _keyData.ToBase32();
         }
     }
 }

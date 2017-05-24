@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Security.Cryptography;
 
-namespace OATH
+namespace Oath
 {
     /// <summary>
     /// OATH-HOTP Generator (RFC 4226)
@@ -11,7 +12,7 @@ namespace OATH
         /// <summary>
         /// Used to calculate the checksum.
         /// </summary>
-        private static readonly int[] _digits =
+        private static readonly int[] Digits =
         {
             1, // 0
             10, // 1
@@ -41,8 +42,15 @@ namespace OATH
         /// <param name="otpLength">The number of digits in the OTP to generate.</param>
         public HotpGenerator(Key secretKey, int otpLength)
         {
-            this._otpLength = otpLength;
-            this._hmac = new HMACSHA1(secretKey.Binary);
+            if (secretKey != null)
+            {
+                _otpLength = otpLength;
+                _hmac = new HMACSHA1(secretKey.ToBinary());
+            }
+            else
+            {
+                throw new ArgumentException("Parameter secretKey cannot be null");
+            }
         }
 
         /// <summary>
@@ -67,7 +75,7 @@ namespace OATH
                 Array.Reverse(text); // text = { 00, 00, 00, 00, 01, 02, 03, 04 }
             }
 
-            var hash = this._hmac.ComputeHash(text);
+            var hash = _hmac.ComputeHash(text);
 
             int offset = hash[hash.Length - 1] & 0xF;
 
@@ -76,11 +84,21 @@ namespace OATH
                          ((hash[offset + 2] & 0xFF) << 8) |
                          (hash[offset + 3] & 0xFF);
 
-            var otp = binary%_digits[this._otpLength];
+            var otp = binary%Digits[_otpLength];
 
-            var result = otp.ToString("D" + this._otpLength);
+            var result = otp.ToString("D" + _otpLength,CultureInfo.InvariantCulture);
 
             return result;
+        }
+
+        /// <summary>
+        /// Validates OTP against current Key
+        /// </summary>
+        /// <param name="providedOtp">OTP Value</param>
+        /// <param name="counter">Counter Value</param>
+        public bool ValidateOtp(string providedOtp, int counter)
+        {
+            return GenerateOtp(counter).Equals(providedOtp, StringComparison.OrdinalIgnoreCase);
         }
 
         /// <summary>
