@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("OATH")]
 [assembly: AssemblyDescription("OATH-HOTP and -TOTP generator class")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Brent Maxwell")]
 [assembly: AssemblyProduct("OATH")]
-[assembly: AssemblyCopyright("Copyright © 2015 Brent Maxwell")]
+[assembly: AssemblyCopyright("Copyright © 2017 Brent Maxwell")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
